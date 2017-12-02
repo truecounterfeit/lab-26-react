@@ -4,7 +4,7 @@ import './style/main.scss';
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import Faker from 'faker';
+import faker from 'faker';
 import { say } from 'cowsay';
 
 class Header extends React.Component {
@@ -25,25 +25,35 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+      this.handleButton = this.handleButton.bind(this);
+
       this.state = {
-        content: 'Click Me!'
+        content: faker.random.firstName + ' Moo!'
       }
-    }
+  }
 
-      // function cowsaysWhat() {
-      //   console.log('Moo');
-      //   this.setState({content:'The cow says Moo!'})
-      // };
+  handleButton(e) {
+    console.log('Moo!');
+        { say (
+          {text: this.state.content}
+        )}
 
-      render () {
-        return (
-          <div>
-          <Heading />
-            <pre>{say({ text: this.state.content})}</pre>
-          <button onClick = {this.state.content}> Click Me!</button>
-          </div>
-        )
-      }
+  }
+
+  // function cowsaysWhat() {
+  //   console.log('Moo');
+  //   this.setState({says:'The cow says Moo!'})
+  // };
+
+  render () {
+    return (
+      <div>
+      <Header />
+      // <pre>{say({ text: this.state.content})}</pre>
+      <button onClick = {this.handleButton}> Click Me Please!</button>
+      </div>
+    )
+  }
 
 }
 
