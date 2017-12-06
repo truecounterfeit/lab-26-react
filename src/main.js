@@ -34,9 +34,9 @@ class App extends React.Component {
 
   handleButton(e) {
     console.log('Moo!');
-        { say (
-          {text: this.state.content}
-        )}
+    { say (
+      {text: this.state.content}
+    )};
 
   }
 
