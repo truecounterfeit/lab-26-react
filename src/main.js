@@ -7,19 +7,6 @@ import ReactDom from 'react-dom';
 import faker from 'faker';
 import { say } from 'cowsay';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <header>
-        <h1>Generate Cowsay Lorem</h1>
-      </header>
-    )
-  }
-}
 
 class App extends React.Component {
   constructor(props) {
@@ -28,29 +15,27 @@ class App extends React.Component {
       this.handleButton = this.handleButton.bind(this);
 
       this.state = {
-        content: faker.random.firstName + ' Moo!'
+        content: 'Fred Moo!',
       }
   }
+  // content: faker.fake('{{name.firstName}}') + ' Moo!',
+  // const randomName = this.state.content;
 
   handleButton(e) {
     console.log('Moo!');
-    { say (
-      {text: this.state.content}
-    )};
-
+    let randomName = faker.fake('{{name.firstName}}') + ' Moo!';
+    this.setState({randomName});
+    // { say (
+    //   {text: this.state.content}
+    // )};
   }
-
-  // function cowsaysWhat() {
-  //   console.log('Moo');
-  //   this.setState({says:'The cow says Moo!'})
-  // };
 
   render () {
     return (
       <div>
-      <Header />
-      // <pre>{say({ text: this.state.content})}</pre>
-      <button onClick = {this.handleButton}> Click Me Please!</button>
+        <header><h1>Generate Cowsay Lorem</h1></header>
+        <pre> {say({ text: this.state.randomName})} </pre>
+        <button onClick = {this.handleButton}> Click Me Please!</button>
       </div>
     )
   }
