@@ -18,16 +18,12 @@ class App extends React.Component {
         content: 'Fred Moo!',
       }
   }
-  // content: faker.fake('{{name.firstName}}') + ' Moo!',
-  // const randomName = this.state.content;
 
   handleButton(e) {
     console.log('Moo!');
     let randomName = faker.fake('{{name.firstName}}') + ' Moo!';
     this.setState({randomName});
-    // { say (
-    //   {text: this.state.content}
-    // )};
+
   }
 
   render () {
